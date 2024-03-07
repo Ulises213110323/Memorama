@@ -12,3 +12,10 @@ class Memorama:
         self.first_card = None
         self.second_card = None
         self.create_widgets()
+    def create_widgets(self):
+        for i, card in enumerate(self.cards):
+            row, col = divmod(i, self.columns)
+            button = tk.Button(self.master, text=" ", width=6, height=3,
+                               command=lambda row=row, col=col: self.on_click(row, col))
+            button.grid(row=row, column=col)
+            self.buttons.append(button)
